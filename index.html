@@ -11,23 +11,24 @@
 <body>
 
   <button onclick="addItem()">Add item</button>
-  <button onclick="removeItem()">Remove item</button>
+  <button onclick="removeItem()">Remove last item</button>
 
   <h1>To-do list</h1>
   <ul id="list"></ul>
-  <!-- <script src="index.js"></script> -->
+
 </body>
 <script>
+
 
   let items = [];
   const todoList = document.getElementById("list");
 
-  function addItem(prompt) {
+  function addItem(kenn) {
 
     todoList.innerHTML = "";
 
 
-    if (prompt == undefined) {
+    if (kenn == undefined) {
       var item = window.prompt("Todo item");
       items.push(item);
 
@@ -42,7 +43,6 @@
       removeBtn.onclick = function (e) {
 
         const newArray = items.filter((e) => e != item);
-        todoList.innerHTML = "";
         items = newArray;
         addItem(false);
 
