@@ -1,17 +1,17 @@
+window.alert("works..")
 // var x = window.prompt("are you sure?");
 // console.log(x);
 
-var todoList = document.createElement("div");
+// var todoList = document.createElement("div");
+// var addButton = document.createElement("button");
+// var removeButton = document.createElement("button");
 
-var addButton = document.createElement("button");
-var removeButton = document.createElement("button");
+// addButton.appendChild(todolist);
+// removeButton.appendChild(todoList);
 
-addButton.appendChild(todolist);
-removeButton.appendChild(todoList);
+// const todolist2 = document.getElementById("list");
 
-const todolist2 = document.getElementById("list");
-
-todolist2.appendChild(todoList);
+// todolist2.appendChild(todoList);
 
 // let divtag = document.getElementById("one");
 

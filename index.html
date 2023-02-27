@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="list"><h1>To-do list<h1></div>
-    <button onclick="addItem()">Add item</button>
-    <button onclick="removeItem()">Remove item</button>
-        <script src="index.js"></script>
-  </body>
-  <script>
 
-const items = [];
-document.createElement()
-    function addItem() {
-      const Todolist = document.getElementById("list");
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+
+  <button onclick="addItem()">Add item</button>
+  <button onclick="removeItem()">Remove item</button>
+
+  <h1>To-do list</h1>
+  <ul id="list"></ul>
+  <!-- <script src="index.js"></script> -->
+</body>
+<script>
+
+  let items = [];
+  const todoList = document.getElementById("list");
+
+  function addItem(prompt) {
+
+    todoList.innerHTML = "";
+
+
+    if (prompt == undefined) {
       var item = window.prompt("Todo item");
       items.push(item);
 
-      items.forEach((item)=>{
-        let newItem = document.createElement("span");
+    }
+
+    items.forEach((item) => {
+      let newItem = document.createElement("li");
+      let removeBtn = document.createElement("button");
       newItem.innerText = item;
-      })      
-      Todolist.appendChild(item);
-    }
+      removeBtn.innerText = "delete"
+      removeBtn.style.marginBlockStart = "40px";
+      removeBtn.onclick = function (e) {
 
-    function removeItem(index) {
-      delete items(index);
-    }
-  </script>
-  <!-- <script>
-    const Todolist = document.getElementById("one");
-    const items = [];
-    let item = document.createElement("div");
-    cars.forEach((element) => {
-      carstring += element;
-    });
+        const newArray = items.filter((e) => e != item);
+        todoList.innerHTML = "";
+        items = newArray;
+        addItem(false);
 
-    car.innerHTML = carstring;
-    y.appendChild(car);
-  </script>
-
-  <script>
-    let cars2 = ["toyoat", "bmw", "volvo", "nissan"];
-    let carsStr = "";
-    let domElement = document.getElementById("hello");
-    let newElement = document.createElement("span");
-
-    for (let index = 0; index < cars2.length; index++) {
-      const element = cars[index];
-
-      carsStr += element;
-      if (index != cars2.length - 1) {
-        carsStr += ",";
       }
-    }
-    newElement.innerText = carsStr;
-    domElement.appendChild(newElement);
-  </script> -->
+      newItem.appendChild(removeBtn);
+      todoList.appendChild(newItem);
+    })
+  }
+
+  function removeItem() {
+    todoList.innerHTML = "";
+
+    items.pop();
+
+    items.forEach((item) => {
+      let newItem = document.createElement("li");
+      newItem.innerText = item;
+      todoList.appendChild(newItem);
+    })
+  }
+
+</script>
+
 </html>
